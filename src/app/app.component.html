@@ -1,0 +1,27 @@
+<h1>Password Generater</h1>
+<div>
+  <label>Enter Length</label>
+  <input #box (keyup.enter)="onChangeLength(box.value)"/>
+  <p>{{value}}</p>
+</div>
+<div>
+  <label>Use Letter</label>
+  <input (change)="onChangeUseLetter()" type="checkbox"/>
+</div>
+<div>
+  <label>Use Number</label>
+  <input (change)="onChangeUseNumber()" type="checkbox"/>
+</div>
+<div>
+  <label>Use Symbol</label>
+  <input (change)="onChangeUseSymbol()" type="checkbox"/>
+</div>
+<div>
+  <button [disabled]="!(length &&(includeLetter||includeNumber||includeSymbol))" (click)="onButtonClick()">Generate!</button>
+</div>
+<div>
+  <label>Your Password</label>
+  <input [value]="password"/>
+</div>
+
+
