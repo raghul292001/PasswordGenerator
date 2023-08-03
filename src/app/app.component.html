@@ -1,27 +1,49 @@
-<h1>Password Generater</h1>
-<div>
-  <label>Enter Length</label>
-  <input #box (keyup.enter)="onChangeLength(box.value)"/>
-  <p>{{value}}</p>
-</div>
-<div>
-  <label>Use Letter</label>
-  <input (change)="onChangeUseLetter()" type="checkbox"/>
-</div>
-<div>
-  <label>Use Number</label>
-  <input (change)="onChangeUseNumber()" type="checkbox"/>
-</div>
-<div>
-  <label>Use Symbol</label>
-  <input (change)="onChangeUseSymbol()" type="checkbox"/>
-</div>
-<div>
-  <button [disabled]="!(length &&(includeLetter||includeNumber||includeSymbol))" (click)="onButtonClick()">Generate!</button>
-</div>
-<div>
-  <label>Your Password</label>
-  <input [value]="password"/>
-</div>
+<div class="container">
+  <div class="columns is-centered">
+    <div class="box column is-one-third">
+      <h1 class="title has-text-centered">Password Generator</h1>
 
+      <div class="field">
+        <label>Length</label>
+        <input class="input"  #box (keyup)="onChangeLength(box.value)" />
+      </div>
 
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onChangeUseLetter()" type="checkbox" />
+            Use Letters
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onChangeUseNumber()" type="checkbox" />
+            Use Numbers
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input (change)="onChangeUseSymbol()" type="checkbox" />
+            Use Symbols
+          </label>
+        </div>
+      </div>
+
+      <button  [disabled]="!(length && (includeLetter || includeNumber || includeSymbol))"
+      (click)="onButtonClick()" class="button is-link is-fullwidth">
+        Generate!
+      </button>
+
+      <div class="box" *ngIf="password">
+        <label>Your Password</label>
+        <input class="input" [value]="password" />
+      </div>
+    </div>
+  </div>
+</div>
